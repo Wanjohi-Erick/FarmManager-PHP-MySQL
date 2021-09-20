@@ -4,7 +4,6 @@ require "dbConn.php";
 $retireve = "SELECT * FROM `sales`";
 $query = mysqli_query($connect, $retireve);
 if (mysqli_num_rows($query) > 0) {
-    $response = "Success";
     $responseArray = array();
     while($result = mysqli_fetch_array($query)){
         $id = $result["ID"];
@@ -13,7 +12,9 @@ if (mysqli_num_rows($query) > 0) {
         $commodity = $result["Commodity"];
         $quantity = $result["Quantity"];
         $price = $result["Price"];
-        array_push($responseArray, array("serverResponse"=>$response, "id"=>$id, "date"=>$date, "particulars"=>$particulars, "commodity"=>$commodity, "quantity"=>$quantity, "price"=>$price));
+        $transactionID = $result["TransactionID"];
+        $contact = $result["Contact"];
+        array_push($responseArray, array("id"=>$id, "date"=>$date, "particulars"=>$particulars, "commodity"=>$commodity, "quantity"=>$quantity, "price"=>$price, "transactionID"=>$transactionID, "contact"=>$contact));
     }
     
     $jencode = json_encode($responseArray);

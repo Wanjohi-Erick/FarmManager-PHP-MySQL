@@ -1,16 +1,17 @@
 <?php
 
 require "dbConn.php";
-$retireve = "SELECT * FROM `crops`";
+$retireve = "SELECT * FROM `employees`";
 $query = mysqli_query($connect, $retireve);
 if (mysqli_num_rows($query) > 0) {
     $response = "Success";
     $responseArray = array();
     while($result = mysqli_fetch_array($query)){
-        $name = $result["cropName"];
-        $units = $result["measurementUnit"];
-        $land = $result["Land"];
-        array_push($responseArray, array("serverResponse"=>$response, "name"=>$name, "units"=>$units, "land"=>$land));
+        $ID = $result["employeeID"];
+        $name = $result["employeeName"];
+        $contact = $result["Contact"];
+        $date = $result["dateOfEmployment"];
+        array_push($responseArray, array("serverResponse"=>$response, "name"=>$name, "employeeID"=>$ID, "contact"=>$contact, "dateOfEmployment"=>$date));
     }
     
     $jencode = json_encode($responseArray);
