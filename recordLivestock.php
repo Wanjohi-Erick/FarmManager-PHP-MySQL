@@ -1,10 +1,10 @@
 <?php
     require "dbConn.php";
     $name = $_POST["name"];
-    $number = $_POST["number"];
-    $age = $_POST["age"];
+    $units = $_POST["units"];
+    $land = $_POST["land"];
 
-    $postSQL = "INSERT INTO `livestock` (`ID`, `livestockName`, `Number`, `Age`) Values (NULL, '$name', '$number', '$age')";
+    $postSQL = "INSERT INTO `crops` (`ID`, `cropName`, `measurementUnit`, `Land`) Values (NULL, '$name', '$units', '$land')";
     $postQueryFX = mysqli_query($connect, $postSQL);
 
     if ($postQueryFX) {

@@ -1,9 +1,9 @@
 <?php
 require "dbConn.php";
-$email = $_POST["Email"];
+$phone = $_POST["Email"];
 $password = $_POST["Password"];
 $hashedPass = md5($password);
-$retireve = "SELECT * FROM `users` WHERE `Email` = '$email'";
+$retireve = "SELECT * FROM `users` WHERE `Phone` = '$phone'";
 $query = mysqli_query($connect, $retireve);
 if (mysqli_num_rows($query) > 0) {
     $responseArray = array();

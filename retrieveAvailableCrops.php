@@ -1,7 +1,9 @@
 <?php
 
+$userName = $_POST["UserName"];
+
 require "dbConn.php";
-$retireve = "SELECT * FROM `crops`";
+$retireve = "SELECT * FROM `crops` WHERE `userName` = '$userName'";
 $query = mysqli_query($connect, $retireve);
 if (mysqli_num_rows($query) > 0) {
     $response = "Success";

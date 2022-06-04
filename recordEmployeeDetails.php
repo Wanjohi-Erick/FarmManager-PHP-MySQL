@@ -1,22 +1,34 @@
 <?php
     require_once("dbConn.php");
     $ID = $_POST["employeeID"];
-    $name = $_POST["employeeName"];
+    $firstName = $_POST["employeeFirstName"];
+    $lastName = $_POST["employeeLastName"];
     $contact = $_POST["employeeContact"];
+    $userName = $_POST["userName"];
 
     $sendToDatabase = "INSERT INTO `employees` (
         ID,
         dateOfEmployment,
         employeeID,
-        employeeName,
-        Contact
+        firstName,
+        lastName,
+        Contact, 
+        userName,
+        Gender,
+        Role,
+        Salary
       )
         VALUES (
             NULL,
             CURRENT_TIMESTAMP,
             '$ID',
-            '$name',
-            '$contact'
+            '$firstName',
+            '$lastName',
+            '$contact', 
+            '$userName',
+            NULL,
+            NULL,
+            NULL
         );";
     $sendToDatabaseQuery = mysqli_query($connect, $sendToDatabase);
     if ($sendToDatabaseQuery){
