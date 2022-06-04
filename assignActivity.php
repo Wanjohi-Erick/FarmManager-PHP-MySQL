@@ -4,7 +4,7 @@
     $username = $_POST["Username"];
     $activity = $_POST["Activity"];
 
-    $insertSQL = "INSERT INTO `assigned_activities`(`ID`, `Employee ID` `User Name`, `Activity`) VALUES (NULL, '$employeId', '$username', '$activity')";
+    $insertSQL = "INSERT INTO `assigned_activities`(`ID`, `Date Assigned`, `Employee ID`, `User Name`, `Activity`) VALUES (NULL, CURRENT_TIMESTAMP, '$employeId', '$username', '$activity')";
     $insertQueryFx = mysqli_query($connect, $insertSQL);
 
     if ($insertQueryFx) {
